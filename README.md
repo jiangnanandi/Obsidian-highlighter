@@ -108,31 +108,32 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
 ### 进阶技巧
 #### 中文符号遇到长链接导致奇怪换行
 我们在进行中文摘录的时候，如果你喜欢「大段大段」的选择并进行摘要，很可能遇到如下奇怪的换行：
-![[CleanShot 2022-03-21 at 17.46.33@2x.png]]
+
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-21%20at%2017.46.33%402x.png)
 
 出现这个问题的原因是 JavaScript 脚本在解析 Select 文本的时候，会将 `# HTML <a>` 也就是我们所说的「长链接」解析成两段，所以导致这里换成了两行。
 
 要想解决此问题，分两步：
 1. 设置「换行方式」为「删除掉换行」。
-![[CleanShot 2022-03-21 at 17.56.07@2x 1.png]]
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-21%20at%2017.56.07%402x%201.png)
 
 2. 重新摘录，不再「大段摘录」，而是逐行选择重点内容进行摘录，由于 Obsidian-highlighter 会自动保持原有层级，所以最终呈现效果如下：
-![[CleanShot 2022-03-21 at 17.56.11@2x 1.png]]
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-21%20at%2017.56.11%402x%201.png)
 
 **PS：我们摘录内容并不是「拷贝」内容，所以建议根据阅读的结果进行「精选摘录」而非「大段标注」，否则就失去意义。**
 
 #### 逐级调整段落层级
 有时候我们摘录的原文层级并不是我们想要的层级，这时候就需要我们手动调整「层级」，例如一段文字如下：
-![[CleanShot 2022-03-21 at 18.11.12@2x 1.png]]
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-21%20at%2018.11.12%402x%201.png)
 
-图中我也标记了期望的层级样式，下边我们根据上文中「调整层级」的设置进行处理，但是这里一定要记住一点**「我们调整的是当前选中段落的下一级」**：
+图中我也标记了期望的层级样式，下边我们根据上文中「调整层级」的设置进行处理，但是这里一定要记住一点 **「我们调整的是当前选中段落的下一级」**：
 - 例如我们希望「自信的产生」是顶层，则选中「自信的产生」，并按下 `Alt+A` 当颜色变为「红色」时，代表这一行以下内容都是这一行的「下一级」，如图：
-![[CleanShot 2022-03-21 at 18.15.59@2x.png]]
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-21%20at%2018.15.59%402x.png)
 - 下一步我们希望「怎么增加自信」成为第二级，此时关键在于选中「怎么增加自信」的上一段，并按下 `Alt+A` 知道字体变成「蓝色」代表他下边的内容都是这一行的「上一级」，如图：
-![[CleanShot 2022-03-21 at 18.19.46@2x.png]]
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-21%20at%2018.19.46%402x.png)
 
 如此反复调整，最终就可以得到我们想要的层级了：
-![[CleanShot 2022-03-21 at 18.22.22@2x.png]]
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-21%20at%2018.22.22%402x.png)
 
 ## Release Notes
 v1.1
