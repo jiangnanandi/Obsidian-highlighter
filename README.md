@@ -41,7 +41,7 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
 - 如果只是想要拷贝标题+URL，只需要在激活扩展之后，按下 CMD+X 快捷键即可，此时无需选中任何文字，标题+URL 就会以 Markdown 格式保存到剪贴板。
 
 #### 保持缩进和原始样式
-![](https://github.com/jiangnanandi/obsidian-highlighter/blob/main/src-img/CleanShot%202022-02-24%20at%2013.34.47.gif)
+![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-02-24%20at%2013.34.47.gif)
 
 - 在进行「高亮标注」按下 `CMD+X` 的时候，Obsidian-highlighter 会自动保持原文中的样式(加粗/URL）以及层级，并按照 Markdown 格式保存。
 
@@ -96,11 +96,11 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
 - 方式4：用空格替代换行
     - 顾名思义，将所有换行替换为「空格」。
 #### 导入到 Obsidian 
-![](https://github.com/jiangnanandi/obsidian-highlighter/blob/main/src-img/CleanShot%202022-03-04%20at%2013.47.44.gif)
+![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-04%20at%2013.47.44.gif)
 
 - 在设置中可以通过配置「库名」和「路径」，支持一键导入到 Obsidian 
 - 「库名」就是 Obsidian 的仓库名称，默认值是 `personal`，**正常情况下，你需要改成自己的「库名」**，否则会遇到如下报错
-![[Pasted image 20220304135423.png]]
+![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/Pasted%20image%2020220304135423.png)
 - 「路径」就是指我们需要导入到 Obsidian 中的路径，默认导入到 `highlight/` 下。
 
 ## Release Notes
