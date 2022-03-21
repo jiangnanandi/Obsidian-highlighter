@@ -13,7 +13,9 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
 
 ##  如何使用
 查看以下视频可快速上手
-- [完整演示视频](https://www.youtube.com/watch?v=JBYiudo-Mzc)
+- [演示视频1：B 站](https://www.bilibili.com/video/BV13S4y1U7W9)
+- [演示视频2：油管](https://www.youtube.com/watch?v=JBYiudo-Mzc)
+
 
 **注意：本人是基于 Mac Safari 开发和调试，大家可放心使用，如果遇到问题可以通过使用 GitHub 问题追踪器：[Submit an Issue](https://github.com/jiangnanandi/obsidian-highlighter/issues/new).**
 
@@ -114,6 +116,7 @@ v1.1
 
 ## 如何开始
 在 Mac App Store 搜索「obsidian-highlighter」安装后即可使用。
+[下载地址](https://apps.apple.com/app/obsidian-highlighter/id1613923144)
 
 ## 最后
 
