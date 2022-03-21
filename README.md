@@ -20,7 +20,7 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
 **注意：本人是基于 Mac Safari 开发和调试，大家可放心使用，如果遇到问题可以通过使用 GitHub 问题追踪器：[Submit an Issue](https://github.com/jiangnanandi/obsidian-highlighter/issues/new).**
 
 
-#### 激活扩展
+### 激活扩展
 
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/Pasted%20image%2020220223132758.png)
 
@@ -28,24 +28,24 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
 - 激活仅适用于当前打开的 Tab 页面，新建页面要重新激活扩展。
 - 扩展应用激活后，再次按下快捷键 `Alt+X` 或点击右上角图标可以「隐藏/显示」右下角窗口（PS：窗口隐藏状态下，扩展应用仍可用）。
 
-#### 高亮标注
+### 高亮标注
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-02-23%20at%2013.46.03.gif)
 
 - 在 Safari 的任何页面中，我们都可以使用 Obsidian-highlighter  扩展进行「高亮标注」。
 - **在网页中选中一段文字，并按下快捷键 `CMD+X` 完成「高亮标注」，被标注的文字会显示「黄色底色」。**
 - 当完成「高亮标注」后，当前内容会自动保存到「剪贴板」中，同时标注内容也会「展示」在右下角窗口中，方便我们查看样式。（这些样式等同于将来导入到  Obsidian 中的样式）
 
-#### 拷贝标题和URL
+### 拷贝标题和URL
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-07%20at%2013.15.45.gif)
 
 - 如果只是想要拷贝标题+URL，只需要在激活扩展之后，按下 CMD+X 快捷键即可，此时无需选中任何文字，标题+URL 就会以 Markdown 格式保存到剪贴板。
 
-#### 保持缩进和原始样式
+### 保持缩进和原始样式
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-02-24%20at%2013.34.47.gif)
 
 - 在进行「高亮标注」按下 `CMD+X` 的时候，Obsidian-highlighter 会自动保持原文中的样式(加粗/URL）以及层级，并按照 Markdown 格式保存。
 
-#### 调整高亮层级
+### 调整高亮层级
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-01%20at%2013.52.00.gif)
 
 - 对于已经进行了「高亮标注」的文本，可以通过将「标注内容」再次选中后，按下 `Alt+A` 进行层级调整。
@@ -61,7 +61,7 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
 2. 整段移除：鼠标选中要移除「高亮标准」任意部分内容，按下 `Alt+Click` （鼠标点击）。
 3. 移除所有：按下快捷键 `Alt+Q`。
 
-#### 「双向链接」
+### 「双向链接」
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-02%20at%2013.42.52.gif)
 
 - 可以对已经进行过「高亮标注」的内容添加「双向链接」。
@@ -70,8 +70,9 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
     - 设置一句话为「双向链接」：在已经「高亮标注」的段落上选中一段内容，按下 `Alt+Z`，即可设置为「双向链接」
     - 删除「双向链接」：在「双向链接」上按下 `Alt+Click`（鼠标左键单击），即可删除「双向链接」（蓝色变回黄色）
 
-#### 设置
-**修改窗口大小以及设置标题**
+### 设置
+
+#### 修改窗口大小以及设置标题
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-03%20at%2013.34.05.gif)
 
 - 修改窗口大小，保存后窗口尺寸变化
@@ -79,7 +80,7 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
     - 方式1：直接修改，本次生效
     - 方式2：新建标题样式，保存后可以一直使用
 
-**换行处理**
+#### 换行处理
 
 > 换行指的是「每次」选中一段进行「高亮标注」时，其中如果有换行，将按照如下四种方式进行处理
 
@@ -95,13 +96,43 @@ Obsidian-highlighter 是一款 Safari 扩展应用，启动「Obsidian-highlight
     ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-04%20at%2013.23.21.gif)
 - 方式4：用空格替代换行
     - 顾名思义，将所有换行替换为「空格」。
-#### 导入到 Obsidian 
+
+### 导入到 Obsidian 
 ![](https://github.com/jiangnanandi/obsidian-highlighter/raw/main/src-img/CleanShot%202022-03-04%20at%2013.47.44.gif)
 
 - 在设置中可以通过配置「库名」和「路径」，支持一键导入到 Obsidian 
 - 「库名」就是 Obsidian 的仓库名称，默认值是 `personal`，**正常情况下，你需要改成自己的「库名」**，否则会遇到如下报错
 ![](https://github.com/jiangnanandi/Obsidian-highlighter/raw/main/src-img/Pasted%20image%2020220304135423.png)
 - 「路径」就是指我们需要导入到 Obsidian 中的路径，默认导入到 `highlight/` 下。
+
+### 进阶技巧
+#### 中文符号遇到长链接导致奇怪换行
+我们在进行中文摘录的时候，如果你喜欢「大段大段」的选择并进行摘要，很可能遇到如下奇怪的换行：
+![[CleanShot 2022-03-21 at 17.46.33@2x.png]]
+
+出现这个问题的原因是 JavaScript 脚本在解析 Select 文本的时候，会将 `# HTML <a>` 也就是我们所说的「长链接」解析成两段，所以导致这里换成了两行。
+
+要想解决此问题，分两步：
+1. 设置「换行方式」为「删除掉换行」。
+![[CleanShot 2022-03-21 at 17.56.07@2x 1.png]]
+
+2. 重新摘录，不再「大段摘录」，而是逐行选择重点内容进行摘录，由于 Obsidian-highlighter 会自动保持原有层级，所以最终呈现效果如下：
+![[CleanShot 2022-03-21 at 17.56.11@2x 1.png]]
+
+**PS：我们摘录内容并不是「拷贝」内容，所以建议根据阅读的结果进行「精选摘录」而非「大段标注」，否则就失去意义。**
+
+#### 逐级调整段落层级
+有时候我们摘录的原文层级并不是我们想要的层级，这时候就需要我们手动调整「层级」，例如一段文字如下：
+![[CleanShot 2022-03-21 at 18.11.12@2x 1.png]]
+
+图中我也标记了期望的层级样式，下边我们根据上文中「调整层级」的设置进行处理，但是这里一定要记住一点**「我们调整的是当前选中段落的下一级」**：
+- 例如我们希望「自信的产生」是顶层，则选中「自信的产生」，并按下 `Alt+A` 当颜色变为「红色」时，代表这一行以下内容都是这一行的「下一级」，如图：
+![[CleanShot 2022-03-21 at 18.15.59@2x.png]]
+- 下一步我们希望「怎么增加自信」成为第二级，此时关键在于选中「怎么增加自信」的上一段，并按下 `Alt+A` 知道字体变成「蓝色」代表他下边的内容都是这一行的「上一级」，如图：
+![[CleanShot 2022-03-21 at 18.19.46@2x.png]]
+
+如此反复调整，最终就可以得到我们想要的层级了：
+![[CleanShot 2022-03-21 at 18.22.22@2x.png]]
 
 ## Release Notes
 v1.1
