@@ -1,5 +1,5 @@
 //Date: 2021.12.21
-var verNum = '1.1'; //Indenting bug in Slack chat
+var verNum = '1.1.1'; //Indenting bug in Slack chat
 var getPage = location.href;
 var iframeDoc = document;
 
@@ -1156,7 +1156,9 @@ function mainFunction(){
         {
             var textInput = createNewElement('textarea','','','width:100%;max-width:100%;height:100%;max-height:100%;background-color:white;color:black;font-weight:bold;white-space:pre;float:right;padding-left:5px;padding-right:1px;font-size:12px;line-height:normal;border-color:black;border-width:1px;border-style:solid;border-bottom:none',divTextElem,'rmHLtextArea','textAreaInput');
             textInput.value = `
-查看演示视频: https://youtu.be/JBYiudo-Mzc
+查看演示视频:
+- B站 ：https://b23.tv/I15MWVS
+- 油管 : https://youtu.be/JBYiudo-Mzc
 
 Obsidian-highlighter Shortcut Keys (v${verNum})
 
