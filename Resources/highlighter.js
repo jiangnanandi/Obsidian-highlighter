@@ -1,5 +1,5 @@
 //Date: 2021.12.21
-var verNum = '1.1.1'; //Indenting bug in Slack chat
+var verNum = '1.1.2'; //Indenting bug in Slack chat
 var getPage = location.href;
 var iframeDoc = document;
 
@@ -21,7 +21,7 @@ var parentTitleArr =
     ['*Obsidian','[{%title%}]({%url%}) [[Obsidian-Highlights]]'],
     ['*All Placeholders','[{%title%}]({%url%}) {%date%} {%time%} ... TRUNCATE TITLE BY ADDING @ followed by character(s) to cutoff at ex. {%title@-%} ... FORMAT DATES ex. {%date@mm-dd-yyyy%} or {%date@day month dd, yyyy%} or Roam date [[{%date@roam%}]]']
 ];
-var parentTitle = parentTitleArr[1][1];
+var parentTitle = parentTitleArr[1][2];
 var sideWidth = "20%";
 var sideHeight = "30%";
 var showWindow = Number(1);
