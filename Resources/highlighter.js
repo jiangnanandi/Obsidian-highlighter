@@ -846,7 +846,6 @@ function mainFunction(){
                     //替换标题中 `/\:`
                     pageTitle = pageTitle.replace(/[/]/g, "-").replace(/[:]/g, "-").replace(/\\/g, "-");
                     let url = "obsidian://new?vault="+encodeURIComponent(obsidianVault)+"&file="+encodeURIComponent(obsidianPath+pageTitle)+"&content="+content;
-                    alert(url)
                     writeToConsole(url);
                     window.location = url;
                 });
