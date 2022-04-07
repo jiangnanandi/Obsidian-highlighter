@@ -1,5 +1,5 @@
 //Date: 2021.12.21
-var verNum = '1.1.1'; //Indenting bug in Slack chat
+var verNum = '1.1.2'; //Indenting bug in Slack chat
 var getPage = location.href;
 var iframeDoc = document;
 
@@ -21,7 +21,7 @@ var parentTitleArr =
     ['*Obsidian','[{%title%}]({%url%}) [[Obsidian-Highlights]]'],
     ['*All Placeholders','[{%title%}]({%url%}) {%date%} {%time%} ... TRUNCATE TITLE BY ADDING @ followed by character(s) to cutoff at ex. {%title@-%} ... FORMAT DATES ex. {%date@mm-dd-yyyy%} or {%date@day month dd, yyyy%} or Roam date [[{%date@roam%}]]']
 ];
-var parentTitle = parentTitleArr[1][1];
+var parentTitle = parentTitleArr[1][2];
 var sideWidth = "20%";
 var sideHeight = "30%";
 var showWindow = Number(1);
@@ -826,7 +826,7 @@ function mainFunction(){
                 var labelElemOb2 = createNewElement('label','路径:','rmHLtbObPath','font-size:12px;line-height:normal;color:black;font-weight:bold;display:inline-block',formElem,'','');
 
                 var tbSizeElemOb2 = createNewElement('input',obsidianPath,'','padding-left:5px;text-align:center;width:100px;margin-left:5px;font-size:12px;line-height:normal;border-color:black;border-width:1px;border-style:solid;display:inline-flex',formElem,'rmHLtbObPath','rmHLtbObPath');
-                tbSizeElemOb2.placeholder = "highlight/";
+                tbSizeElemOb2.placeholder = "/";
 
                 //在 rmHLform 中创建「导出到 Obsidian」按钮，并绑定点击事件
                 var butExportObsidian = createNewElement('button','导出到 Obsidian','','background-color:black;color:white;border-color:white;margin-left:15px;font-size:12px;line-height:normal;border-color:white;border-width:1px;border-style:solid;cursor:pointer;padding:5px;vertical-align:bottom',formElem,'rmHLexport','rmHLexport');
@@ -836,9 +836,9 @@ function mainFunction(){
                     let content = encodeURIComponent(textInput.value);
                     if (obsidianVault == "") {obsidianVault = "personal"};
                     //如果没有「highlight/」或者 「highlight/」不是开头，确保根路径为 「highlight/」
-                    if(obsidianPath.indexOf("highlight/") == -1 || obsidianPath.indexOf("highlight/")!=0){
-                        obsidianPath = "highlight/"+ obsidianPath;
-                    };
+//                    if(obsidianPath.indexOf("highlight/") == -1 || obsidianPath.indexOf("highlight/")!=0){
+//                        obsidianPath = "highlight/"+ obsidianPath;
+//                    };
                     //确保路径中最后一位是「/」
                     if (obsidianPath.substr(obsidianPath.length-1,1) != "/"){ obsidianPath += "/"}
                     //替换路径中的 `\:` 以及空格
