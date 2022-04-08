@@ -8,7 +8,7 @@ var iframeDoc = document;
 //1 = Show all log items marked logLevel = 1
 //2 = Show all log items marked logLevel 1 & 2
 //3 = Show all log items (Full Verbose)
-var debugMode = 3;
+var debugMode = 0;
 var consoleTabLevel = '';
 
 
@@ -211,6 +211,9 @@ async function startFunction(){
                 break;
             case "parentTitle":
                 if(varResult !== undefined){parentTitle = varResult;}
+                if(parentTitle == "*NONE" || performance == undefined){
+                    parentTitle = parentTitleArr[1][2];
+                }
                 //parentTitle = parentTitleArr[1][1];
                 setLocalStorageValue("parentTitle", parentTitle);
                 break;
