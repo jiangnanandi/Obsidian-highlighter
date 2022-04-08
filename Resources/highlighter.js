@@ -21,7 +21,7 @@ var parentTitleArr =
     ['*Obsidian','[{%title%}]({%url%}) [[Obsidian-Highlights]]'],
     ['*All Placeholders','[{%title%}]({%url%}) {%date%} {%time%} ... TRUNCATE TITLE BY ADDING @ followed by character(s) to cutoff at ex. {%title@-%} ... FORMAT DATES ex. {%date@mm-dd-yyyy%} or {%date@day month dd, yyyy%} or Roam date [[{%date@roam%}]]']
 ];
-var parentTitle = parentTitleArr[1][2];
+var parentTitle = parentTitleArr[2][1];
 var sideWidth = "20%";
 var sideHeight = "30%";
 var showWindow = Number(1);
@@ -211,9 +211,6 @@ async function startFunction(){
                 break;
             case "parentTitle":
                 if(varResult !== undefined){parentTitle = varResult;}
-                if(parentTitle == undefined){
-                    parentTitle = parentTitleArr[1][2];
-                }
                 //parentTitle = parentTitleArr[1][1];
                 setLocalStorageValue("parentTitle", parentTitle);
                 break;
