@@ -211,7 +211,7 @@ async function startFunction(){
                 break;
             case "parentTitle":
                 if(varResult !== undefined){parentTitle = varResult;}
-                if(parentTitle == "*NONE" || performance == undefined){
+                if(parentTitle == undefined){
                     parentTitle = parentTitleArr[1][2];
                 }
                 //parentTitle = parentTitleArr[1][1];
