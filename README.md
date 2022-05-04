@@ -154,6 +154,16 @@ v1.1.2
 - 修复了导出路径限制，现在可以导出到任意路径
 - 其他小问题
 
+v1.1.3
+- 导出目录，有空格，会被删除掉空格问题。 #bug
+- 解决安装后提示「清单 content_scripts 部分的 'js' 和 'css' 数组丢失或空白」。 #feature
+- 解决了导出 Obsidian 后还需要对齐格式的问题。 #bug
+- 去掉 header 默认设置项。 #feature
+- 导出OB路径如果写成 `/page` 失败问题，原因目录不能以`/`开头。 #bug
+- 修改错别字「清楚->清除」。 #bug
+- 新增导出快捷入口，一键导出。 #feature
+- 更新了应用图标，更标准展示。 #feature
+
 ## 如何开始
 在 Mac App Store 搜索「obsidian-highlighter」安装后即可使用。
 [下载地址](https://apps.apple.com/app/obsidian-highlighter/id1613923144)

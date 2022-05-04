@@ -1,5 +1,5 @@
 //Date: 2021.12.21
-var verNum = '1.1.2'; //Indenting bug in Slack chat
+var verNum = '1.1.3'; //Indenting bug in Slack chat
 var getPage = location.href;
 var iframeDoc = document;
 
@@ -31,7 +31,7 @@ var formatStrike = '~~';
 var formatInsert = formatBold;
 var formatCode = '`';
 var formatBullets = '- ';
-var bHeaders = true;
+var bHeaders = false;
 var bIndents = true;
 var bLinks = true;
 var bAutoHL = false;
@@ -406,7 +406,7 @@ function mainFunction(){
             //创建第一行「清除按钮」和「自动高亮选项框」
             {
                 //在 rmHLform 中创建「清除标记」按钮，并绑定点击事件
-                var butClearAll = createNewElement('button','清楚所有高亮','','background-color:black;color:white;border-color:white;margin-left:0px;font-size:12px;line-height:normal;border-color:white;border-width:1px;border-style:solid;cursor:pointer;padding:5px;vertical-align:bottom',formElem,'rmHLclear','rmHLclear');
+                var butClearAll = createNewElement('button','清除所有高亮','','background-color:black;color:white;border-color:white;margin-left:0px;font-size:12px;line-height:normal;border-color:white;border-width:1px;border-style:solid;cursor:pointer;padding:5px;vertical-align:bottom',formElem,'rmHLclear','rmHLclear');
                 butClearAll.addEventListener("click", function(){
                     removeAllHighlights();
                 });
@@ -815,7 +815,7 @@ function mainFunction(){
             //设置导入到 Obsidian 的库和文件目录，以及按钮
             //如果目录不存在可以自动创建
             {
-                var labelElemOb = createNewElement('label','设置导出到 Obsidian 的库和路径','','font-size:12px;line-height:normal;color:black;font-weight:bold;display:inline-block',formElem,'','');
+                var labelElemOb = createNewElement('label','设置导出到 Obsidian 的库和路径：目录中不能有 `\:` 等内容，否则会被替换成 `-`','','font-size:12px;line-height:normal;color:black;font-weight:bold;display:inline-block',formElem,'','');
 
                 formElem.appendChild(document.createElement('br'));
                 var labelElemOb1 = createNewElement('label','库名:','rmHLtbObVault','font-size:12px;line-height:normal;color:black;font-weight:bold;display:inline-block',formElem,'','');
@@ -831,23 +831,7 @@ function mainFunction(){
                 //在 rmHLform 中创建「导出到 Obsidian」按钮，并绑定点击事件
                 var butExportObsidian = createNewElement('button','导出到 Obsidian','','background-color:black;color:white;border-color:white;margin-left:15px;font-size:12px;line-height:normal;border-color:white;border-width:1px;border-style:solid;cursor:pointer;padding:5px;vertical-align:bottom',formElem,'rmHLexport','rmHLexport');
                 butExportObsidian.addEventListener("click", function(){
-                    //获取内容，并导出
-                    let textInput = iframeDoc.getElementById("rmHLtextArea");
-                    let content = encodeURIComponent(textInput.value);
-                    if (obsidianVault == "") {obsidianVault = "personal"};
-                    //如果没有「highlight/」或者 「highlight/」不是开头，确保根路径为 「highlight/」
-//                    if(obsidianPath.indexOf("highlight/") == -1 || obsidianPath.indexOf("highlight/")!=0){
-//                        obsidianPath = "highlight/"+ obsidianPath;
-//                    };
-                    //确保路径中最后一位是「/」
-                    if (obsidianPath.substr(obsidianPath.length-1,1) != "/"){ obsidianPath += "/"}
-                    //替换路径中的 `\:` 以及空格
-                    obsidianPath = obsidianPath.replace(/[:]/g, "-").replace(/\\/g, "-").replace(/[ ]/g,"");
-                    //替换标题中 `/\:`
-                    pageTitle = pageTitle.replace(/[/]/g, "-").replace(/[:]/g, "-").replace(/\\/g, "-");
-                    let url = "obsidian://new?vault="+encodeURIComponent(obsidianVault)+"&file="+encodeURIComponent(obsidianPath+pageTitle)+"&content="+content;
-                    writeToConsole(url);
-                    window.location = url;
+                    exportToObsidian();
                 });
             }
 
@@ -1152,6 +1136,15 @@ function mainFunction(){
             });
         }
 
+        //2.1.8 导出按钮
+        {
+            var butSett = createNewElement('button','导出','','float:right;background-color:black;color:white;border-color:white;width:25%;font-size:12px;line-height:normal;border-color:white;border-width:1px;border-style:solid;cursor:pointer;padding:5px;height: 100%',divButtonsElem,'rmHLexportOb','rmHLexportOb');
+
+            butSett.addEventListener("click", function(){
+                exportToObsidian();
+            });
+        }
+
         //2.1.7 右侧摘录文本区域
         {
             var textInput = createNewElement('textarea','','','width:100%;max-width:100%;height:100%;max-height:100%;background-color:white;color:black;font-weight:bold;white-space:pre;float:right;padding-left:5px;padding-right:1px;font-size:12px;line-height:normal;border-color:black;border-width:1px;border-style:solid;border-bottom:none',divTextElem,'rmHLtextArea','textAreaInput');
@@ -1268,7 +1261,7 @@ Obsidian-highlighter Shortcut Keys (v${verNum})
                         newSpanTag.appendChild(selectedText);
                         subSelection.insertNode(newSpanTag);
 
-                        //清楚原始鼠标选择状态
+                        //清除原始鼠标选择状态
                         document.getSelection().removeAllRanges();
 
                         //强制执行 "剪切 "事件，因为除非从剪切/复制事件中激活，否则 clipboardData 事件 setData 不会工作。
@@ -1299,6 +1292,10 @@ Obsidian-highlighter Shortcut Keys (v${verNum})
                     showWindow = 1;
                     setLocalStorageValue("showWindow", showWindow);
                 }
+            }
+            //导出到 Obsidian
+            if(request.callFunction === 'exportToObsidian'){
+                exportToObsidian();
             }
 
         })
@@ -3272,9 +3269,9 @@ Obsidian-highlighter Shortcut Keys (v${verNum})
             var lineBreaks = loopHtml.trim().split('\r\n');
 
             var newPlainText = "";
-            var indentAmount = '    ';
+            var indentAmount = '    ';//4 spaces
             if(bIndents == false){indentAmount = '';}
-            var indentCtr = 0;
+            var indentCtr = -1;//少计算一次，这样就减少了第一行缩进的情况
             for(var x=0, eachLine; eachLine = lineBreaks[x]; x++)
             {
                 if(x > 0 || cbElemPgTitle.checked){if(eachLine.substring(0,4) == '<ul>'){indentCtr++;}}
@@ -3371,6 +3368,28 @@ Obsidian-highlighter Shortcut Keys (v${verNum})
 
             // 删除之前高亮的空元素
             curElement.remove();
+        }
+
+        function exportToObsidian(){
+            //获取内容，并导出
+            let textInput = iframeDoc.getElementById("rmHLtextArea");
+            let content = encodeURIComponent(textInput.value);
+            if (obsidianVault == "") {obsidianVault = "personal"};
+            //如果没有「highlight/」或者 「highlight/」不是开头，确保根路径为 「highlight/」
+//                    if(obsidianPath.indexOf("highlight/") == -1 || obsidianPath.indexOf("highlight/")!=0){
+//                        obsidianPath = "highlight/"+ obsidianPath;
+//                    };
+            //确保路径中最后一位是「/」
+            if (obsidianPath.substr(obsidianPath.length-1,1) != "/"){ obsidianPath += "/"}
+            //替换路径中的 `\:` 以及空格
+            obsidianPath = obsidianPath.replace(/[:]/g, "-").replace(/\\/g, "- ").trim();
+            //确保路径中第一位不能是「/」
+            if (obsidianPath.substr(0,1) == "/"){ obsidianPath = obsidianPath.substr(1,obsidianPath.length-1)};
+            //替换标题中 `/\:`
+            pageTitle = pageTitle.replace(/[/]/g, "-").replace(/[:]/g, "-").replace(/\\/g, "-");
+            let url = "obsidian://new?vault="+encodeURIComponent(obsidianVault)+"&file="+encodeURIComponent(obsidianPath+pageTitle)+"&content="+content;
+            writeToConsole(url);
+            window.location = url;
         }
 
         //-----相关函数实现

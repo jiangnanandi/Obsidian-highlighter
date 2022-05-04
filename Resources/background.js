@@ -40,6 +40,11 @@ useBrowser.commands.onCommand.addListener(function (command) {
         useBrowser.tabs.query({active: true, currentWindow: true}, function (tabs) {
             useBrowser.tabs.sendMessage(tabs[0].id, {'callFunction': 'convertToHeader'});
         });
+    }else if (command == "export-to-obsidian"){
+        //导出到 Obsidian
+        useBrowser.tabs.query({active: true, currentWindow: true}, function (tabs) {
+            useBrowser.tabs.sendMessage(tabs[0].id, {'callFunction': 'exportToObsidian'});
+        });
 //    }else if(command == "show-hide-side-window"){
 //        useBrowser.tabs.query({active: true, currentWindow: true}, function(tabs){
 //            useBrowser.tabs.sendMessage(tabs[0].id, {'callFunction': 'showHideSideWindow'});
